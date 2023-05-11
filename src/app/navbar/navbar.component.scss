@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+$lightBgColor:#24baef;
+
+.noxe-logo{
+    font: {
+        family : 'Russo One', sans-serif;
+        size : 2rem;
+    }
+}
+.active-link{
+    color: $lightBgColor !important;
+}
+
+@mixin transition($property , $time){
+    transition: $property $time;
+    -webkit-transition: $property $time;
+    -moz-transition: $property $time;
+    -ms-transition: $property $time;
+    -o-transition: $property $time;
+}
+
+@mixin scl-rot($x,$y,$z){
+    transform: scale($x , $y) rotate($z);
+    -webkit-transform: scale($x , $y) rotate($z);
+    -moz-transform: scale($x , $y) rotate($z);
+    -ms-transform: scale($x , $y) rotate($z);
+    -o-transform: scale($x , $y) rotate($z);
+}
+
+.brands{
+    @include transition(transform, 1s );
+  &:hover {
+    @include scl-rot(1.2,1.2,360deg);
+  }
+}

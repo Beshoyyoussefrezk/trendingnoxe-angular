@@ -1,0 +1,37 @@
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="trending">
+            <div class="line w-25"></div>
+            <h4 class="py-4">Trending <br /> Movies <br /> to watch Now</h4>
+            <p class="ndColor">Most watched movies by days</p>
+            <div class="line w-100"></div>
+        </div>
+    </div>
+    <div class="col-md-2" *ngFor="let movie of someMovies">
+        <div class="content-trending position-relative">
+            <div class="vote-average w-25 position-absolute text-center py-1">{{movie.vote_average|voteAverage}}</div>
+            <img *ngIf="movie.poster_path != null" class="img-fluid" [src]="imgSrc+movie.poster_path" alt="">
+            <img *ngIf="movie.poster_path == null" class="img-fluid" src="assets/No-Image.png" alt="">
+            <p class="font-p pt-2 text-center">{{movie.title}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="trending">
+            <div class="line w-25"></div>
+            <h4 class="py-4">Trending <br /> TV <br /> to watch Now</h4>
+            <p class="ndColor">Most watched TV by days</p>
+            <div class="line w-100"></div>
+        </div>
+    </div>
+    <div class="col-md-2" *ngFor="let tv of someTv">
+        <div class="content-trending position-relative">
+            <div class="vote-average w-25 position-absolute text-center py-1">{{tv.vote_average|voteAverage}}</div>
+            <img *ngIf="tv.poster_path != null" class="img-fluid" [src]="imgSrc+tv.poster_path" alt="">
+            <img *ngIf="tv.poster_path == null" class="img-fluid" src="assets/No-Image.png" alt="">
+            <p class="font-p pt-2 text-center">{{tv.name}}</p>
+        </div>
+    </div>
+</div>

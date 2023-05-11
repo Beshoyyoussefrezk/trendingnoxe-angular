@@ -1,0 +1,21 @@
+<div class="row pt-4" *ngIf="details.birthday">
+    <div class="col-md-4">
+        <img [src]="imgSrc+details.profile_path" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-8 px-5">
+        <h2 class="text-center">{{details.name}}</h2>
+        <p>Department : <span class="lightBgColor">{{details.known_for_department}}</span></p>
+        <p>Birthday : <span class="lightBgColor">{{details.birthday}}</span></p>
+        <p>Place of Birth : <span class="lightBgColor">{{details.place_of_birth}}</span></p>
+        <p class="ndColor mt-5 h-50 overflow-auto">{{details.biography}}</p>
+    </div>
+</div>
+<div class="row pt-5" *ngIf="!details.birthday">
+    <div class="col-md-4">
+        <img src="assets/No-Image.png" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-8 d-flex align-items-center justify-content-center">
+        <p class="text-center text-capitalize">no data for this person</p>
+    </div>
+</div>
+

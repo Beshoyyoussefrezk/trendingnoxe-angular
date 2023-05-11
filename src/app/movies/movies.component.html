@@ -1,0 +1,10 @@
+<div class="row mt-5">
+    <div class="pointer col-md-2" *ngFor="let movie of allMovies">
+        <div class="content-trending position-relative" [routerLink]="['/moviedetails' , movie.id]">
+            <div class="vote-average w-25 position-absolute text-center py-1">{{movie.vote_average|voteAverage}}</div>
+            <img *ngIf="movie.poster_path != null" class="img-fluid" [src]="imgSrc+movie.poster_path" alt="">
+            <img *ngIf="movie.poster_path == null" class="img-fluid" src="assets/No-Image.png" alt="">
+            <p class="font-p pt-2 text-center">{{movie.title}}</p>
+        </div>
+    </div>
+</div>

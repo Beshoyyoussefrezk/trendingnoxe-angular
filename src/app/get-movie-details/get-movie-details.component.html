@@ -1,0 +1,20 @@
+<div class="row pt-4">
+    <div class="col-md-4">
+        <img [src]="imgSrc+details.poster_path" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-8 px-5">
+        <h2 class="text-center">{{details.title}}</h2>
+        <p class="mb-5">{{details.tagline}}</p>
+        <ul class="p-0">
+            <li class="bg-info list-unstyled d-inline-block me-2 p-2 rounded-2 genre" *ngFor="let genre of details.genres">
+                {{genre.name}}
+            </li>
+        </ul>
+        <p class="mt-3">Vote : {{details.vote_average|voteAverage}} </p>
+        <p>Vote Count : {{details.vote_count}} </p>
+        <p>Popularity : {{details.popularity|voteAverage}} </p>
+        <p>Release date : {{details.release_date|date}} </p>
+        <p class="ndColor">{{details.overview}}</p>
+    </div>
+</div>
+

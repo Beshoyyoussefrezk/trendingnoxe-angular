@@ -1,0 +1,12 @@
+<div class="row mt-5">
+    <div class="row mt-5">
+        <div class="pointer col-md-2" *ngFor="let people of allPeople">
+            <div class="content-trending position-relative" [routerLink]="['/personDetails' , people.id]">
+                <div class="vote-average w-25 position-absolute text-center py-1">{{people.popularity|voteAverage}}</div>
+                <img *ngIf="people.profile_path != null" class="img-fluid" [src]="imgSrc+people.profile_path" alt="">
+                <img *ngIf="people.profile_path == null" class="img-fluid" src="assets/No-Image.png" alt="">
+                <p class="font-p pt-2 text-center">{{people.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>
