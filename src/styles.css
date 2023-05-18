@@ -1,0 +1,50 @@
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+$bgColor:#131722;
+$lightBgColor:#24baef;
+$bgTransparent:rgba(36,186,239,.6) ;
+$fontColor:#fff;
+$borderColor:#a8a8a83d;
+$borderHeight:1px;
+$secondFontColor:#949cb0;
+
+
+*/
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+body {
+  background-color: #131722;
+  font-family: "Bruno Ace", cursive;
+  color: #fff;
+}
+
+.ndColor {
+  color: #949cb0;
+}
+
+.lightBgColor {
+  color: #24baef;
+}
+
+.font-p {
+  font-size: 0.8rem;
+}
+
+.vote-average {
+  top: 0;
+  right: 0;
+  background-color: #24baef;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.font-fam2 {
+  font-family: "Dosis", sans-serif;
+}
+
+.font-siz3 {
+  font-size: 1.3rem;
+}/*# sourceMappingURL=styles.css.map */

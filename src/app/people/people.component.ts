@@ -8,12 +8,28 @@ import { TrendingService } from '../trending.service';
   styleUrls: ['./people.component.scss']
 })
 export class PeopleComponent {
-  allPeople:any = [];
+  allPeople: any = [];
+  timing: string = "";
+  term:string = ""
   imgSrc = `https://image.tmdb.org/t/p/w500`;
   constructor(private _TrendingService: TrendingService) {
-    this._TrendingService.getTrending("person", "day").subscribe(
+    this._TrendingService.currentTiming.subscribe(
       data => {
-        this.allPeople = data.results;
+        if (this._TrendingService.currentTiming.getValue() == "Day") {
+          this.timing = "day";
+        } else {
+          this.timing = "week";
+        }
+        this._TrendingService.getTrending("person", this.timing).subscribe(
+          data => {
+            this.allPeople = data.results;
+          }
+        )
+      }
+    )
+    this._TrendingService.currentTerm.subscribe(
+      data => {
+        this.term = data;
       }
     )
   }

@@ -7,12 +7,28 @@ import { TrendingService } from '../trending.service';
 })
 
 export class MoviesComponent {
-  allMovies:any = [];
+  timing: string = "";
+  term: string = ""
+  allMovies: any = [];
   imgSrc = `https://image.tmdb.org/t/p/w500`;
   constructor(private _TrendingService: TrendingService) {
-    this._TrendingService.getTrending("movie", "day").subscribe(
+    this._TrendingService.currentTiming.subscribe(
       data => {
-        this.allMovies = data.results;
+        if (this._TrendingService.currentTiming.getValue() == "Day") {
+          this.timing = "day";
+        } else {
+          this.timing = "week";
+        }
+        this._TrendingService.getTrending("movie", this.timing).subscribe(
+          data => {
+            this.allMovies = data.results;
+          }
+        )
+      }
+    )
+    this._TrendingService.currentTerm.subscribe(
+      data => {
+        this.term = data;
       }
     )
   }

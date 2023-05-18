@@ -1,0 +1,40 @@
+<form [formGroup]="loginForm" (ngSubmit)="logIn(loginForm)" class="row g-3 w-50 w80-media pb-5 m-auto">
+    <div class="col-12 mt-5 py-2 text-center">
+        <h2>Log In</h2>
+    </div>
+
+    <div class="col-12 text-center">
+        <p *ngIf="error" class="text-danger font-fam2">{{error}}</p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="email" type="email" [class.is-valid]=" loginForm.get('email')?.status == 'VALID' && loginForm.get('email')?.touched "
+        [class.is-invalid]=" loginForm.get('email')?.status == 'INVALID' && loginForm.get('email')?.touched "
+            class="form-control border-white mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="Email">
+    </div>
+    <div class="col-12 m-0" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+        <p *ngIf="loginForm.get('email')?.errors?.['required']" class="px-1 text-danger font-fam2">* Email is required</p>
+        <p *ngIf="loginForm.get('email')?.errors?.['email']" class="mx-1 px-1 text-danger font-fam2">* Invalid email </p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="password" type="password" [class.is-valid]=" loginForm.get('password')?.status == 'VALID' && loginForm.get('password')?.touched "
+        [class.is-invalid]=" loginForm.get('password')?.status == 'INVALID' && loginForm.get('password')?.touched "
+            class="form-control border-info mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="Password">
+    </div>
+    <div class="col-12 m-0" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+        <p *ngIf="loginForm.get('password')?.errors?.['required']" class="px-1 text-danger font-fam2">* Password is required</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['pattern']" class="mx-1 px-1 text-danger font-fam2">* Incorrect password</p>
+    </div>
+
+    <div class="col-12 text-end">
+        <button type="submit" class="btn btn-outline-info" [disabled]="loginForm.invalid" >Login</button>
+    </div>
+    <div class="col-12 font-fam2 font-siz3">
+        <p>If you do not have an account, registering for an account is free
+            <a class="text-info text-decoration-none" routerLink="/signup">Sign up</a>
+        </p>
+    </div>
+</form>

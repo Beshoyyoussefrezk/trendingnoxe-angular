@@ -28,9 +28,9 @@ $lightBgColor:#24baef;
     -o-transform: scale($x , $y) rotate($z);
 }
 
-.brands{
+.brands .effect-brands{
     @include transition(transform, 1s );
-  &:hover {
-    @include scl-rot(1.2,1.2,360deg);
-  }
+    &:hover{
+        @include scl-rot(1.2,1.2,360deg);
+    }
 }

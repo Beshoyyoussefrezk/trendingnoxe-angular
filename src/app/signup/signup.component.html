@@ -1,0 +1,68 @@
+<form [formGroup]="signupForm" (ngSubmit)="signUp(signupForm)" class="row g-3 w-50 w80-media pb-5 m-auto">
+    <div class="col-12 mt-5 py-2 text-center">
+        <h2>Sign up</h2>
+    </div>
+
+    <div class="col-12 text-center">
+        <p *ngIf="isError" class="text-danger font-fam2">email already registered</p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="first_name" type="text" [class.is-valid]=" signupForm.get('first_name')?.status == 'VALID' && signupForm.get('first_name')?.touched "
+        [class.is-invalid]=" signupForm.get('first_name')?.status == 'INVALID' && signupForm.get('first_name')?.touched "
+            class="form-control border-info mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="First Name">
+    </div>
+    <div class="col-12 m-0" *ngIf="signupForm.get('first_name')?.errors && signupForm.get('first_name')?.touched">
+        <p *ngIf="signupForm.get('first_name')?.errors?.['required']" class="px-1 text-danger font-fam2">* First Name is required</p>
+        <p *ngIf="signupForm.get('first_name')?.errors?.['minlength'] || signupForm.get('first_name')?.errors?.['maxlength']" class="mx-1 px-1 text-danger font-fam2">* First Name contains from 3 characters to 10 characters</p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="last_name" type="text" [class.is-valid]=" signupForm.get('last_name')?.status == 'VALID' && signupForm.get('last_name')?.touched "
+        [class.is-invalid]=" signupForm.get('last_name')?.status == 'INVALID' && signupForm.get('last_name')?.touched "
+            class="form-control border-white mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="Last Name">
+    </div>
+    <div class="col-12 m-0" *ngIf="signupForm.get('last_name')?.errors && signupForm.get('last_name')?.touched">
+        <p *ngIf="signupForm.get('last_name')?.errors?.['required']" class="px-1 text-danger font-fam2">* Last Name is required</p>
+        <p *ngIf="signupForm.get('last_name')?.errors?.['minlength'] || signupForm.get('last_name')?.errors?.['maxlength']" class="mx-1 px-1 text-danger font-fam2">* Last Name contains from 3 characters to 10 characters</p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="age" type="number" [class.is-valid]=" signupForm.get('age')?.status == 'VALID' && signupForm.get('age')?.touched "
+        [class.is-invalid]=" signupForm.get('age')?.status == 'INVALID' && signupForm.get('age')?.touched "
+            class="form-control border-info mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="Age">
+    </div>
+    <div class="col-12 m-0" *ngIf="signupForm.get('age')?.errors && signupForm.get('age')?.touched">
+        <p *ngIf="signupForm.get('age')?.errors?.['required']" class="px-1 text-danger font-fam2">* Age is required</p>
+        <p *ngIf="signupForm.get('age')?.errors?.['pattern']" class="mx-1 px-1 text-danger font-fam2">* Age is allowed from 10 years to 80 years</p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="email" type="email" [class.is-valid]=" signupForm.get('email')?.status == 'VALID' && signupForm.get('email')?.touched "
+        [class.is-invalid]=" signupForm.get('email')?.status == 'INVALID' && signupForm.get('email')?.touched "
+            class="form-control border-white mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="Email">
+    </div>
+    <div class="col-12 m-0" *ngIf="signupForm.get('email')?.errors && signupForm.get('email')?.touched">
+        <p *ngIf="signupForm.get('email')?.errors?.['required']" class="px-1 text-danger font-fam2">* Email is required</p>
+        <p *ngIf="signupForm.get('email')?.errors?.['email']" class="mx-1 px-1 text-danger font-fam2">* Invalid email </p>
+    </div>
+
+    <div class="col-12">
+        <input formControlName="password" type="password" [class.is-valid]=" signupForm.get('password')?.status == 'VALID' && signupForm.get('password')?.touched "
+        [class.is-invalid]=" signupForm.get('password')?.status == 'INVALID' && signupForm.get('password')?.touched "
+            class="form-control border-info mb-4 rounded-0 border-0 border-bottom text-white shadow-none bg-transparent "
+            id="inputAddress" placeholder="Password">
+    </div>
+    <div class="col-12 m-0" *ngIf="signupForm.get('password')?.errors && signupForm.get('password')?.touched">
+        <p *ngIf="signupForm.get('password')?.errors?.['required']" class="px-1 text-danger font-fam2">* Password is required</p>
+        <p *ngIf="signupForm.get('password')?.errors?.['pattern']" class="mx-1 px-1 text-danger font-fam2">* Incorrect password</p>
+    </div>
+
+    <div class="col-12 text-end">
+        <button type="submit" class="btn btn-outline-info" [disabled]="signupForm.invalid" >Sign up</button>
+    </div>
+</form>

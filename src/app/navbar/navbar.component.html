@@ -1,55 +1,57 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-transparent">
-    <div class="container-fluid">
-      <a class="navbar-brand noxe-logo" routerLink="/home">Noxe</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/movies" routerLinkActive="active-link">Movies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tvshow" routerLinkActive="active-link">TV Show</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/people" routerLinkActive="active-link">People</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <li class="nav-item brands">
-                <a class="nav-link active" aria-current="page" href="#">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-            </li>
-            <li class="nav-item brands">
-                <a class="nav-link active" aria-current="page" href="#">
-                    <i class="fa-brands fa-spotify"></i>
-                </a>
-            </li>
-            <li class="nav-item brands">
-                <a class="nav-link active" aria-current="page" href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-            </li>
-            <li class="nav-item brands">
-                <a class="nav-link active" aria-current="page" href="#">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Logout</a>
-            </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand noxe-logo" routerLink="/home">Noxe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" *ngIf="isLogin" routerLink="/home"
+            routerLinkActive="active-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" *ngIf="isLogin" routerLink="/movies"
+            routerLinkActive="active-link">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" *ngIf="isLogin" routerLink="/tvshow"
+            routerLinkActive="active-link">TV Show</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" *ngIf="isLogin" routerLink="/people"
+            routerLinkActive="active-link">People</a>
+        </li>
+        <li class="nav-item ms-4 pointer m0-media ">
+          <a (click)="getTiming($event)" class="timing-media nav-link active bg-info px-3 rounded-pill" aria-current="page" *ngIf="isLogin" routerLinkActive="active-link">Day</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mt-media">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2"   (keyup)="getSearchTerm($event)" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <li class="nav-item brands d-flex">
+          <a class="nav-link active effect-brands ms-media" aria-current="page" href="#">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a class="nav-link active effect-brands ms-media" aria-current="page" href="#">
+            <i class="fa-brands fa-spotify"></i>
+          </a>
+          <a class="nav-link active effect-brands ms-media" aria-current="page" href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="nav-link active effect-brands ms-media" aria-current="page" href="#">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" *ngIf="!isLogin" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item pointer" (click)="logout()">
+          <a class="nav-link active" aria-current="page" *ngIf="isLogin">Logout</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

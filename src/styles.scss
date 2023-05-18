@@ -12,6 +12,7 @@ $secondFontColor:#949cb0;
 
 */
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 
 $main-bg-color : #131722;
 $lightBgColor:#24baef;
@@ -48,3 +49,46 @@ body{
     cursor: pointer;
 }
 
+.font-fam2{
+    font-family: 'Dosis', sans-serif;
+}
+.font-siz3{
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 992px){
+    .mb-media{
+        margin-bottom: 2rem;
+    }
+    .mt-media{
+        margin-top: 2rem !important;
+    }
+    .mb1-media{
+        margin-top: 1rem !important;
+    }
+    .ms-media{
+        margin-left: .7rem;
+    }
+    .m0-media{
+        margin: 0% !important;
+    }
+    .px-media{
+        padding: 0% 1.2rem !important;
+    }
+    .w80-media{
+        width: 80% !important;
+    }
+    .timing-media{
+        padding-left: 0% !important;
+        background-color: transparent !important;
+        color: $lightBgColor !important;
+        border-radius: 0% !important;
+        -webkit-border-radius: 0% !important;
+        -moz-border-radius: 0% !important;
+        -ms-border-radius: 0% !important;
+        -o-border-radius: 0% !important;
+    }
+    .justify-media{
+        text-align: justify !important ;
+    }
+}

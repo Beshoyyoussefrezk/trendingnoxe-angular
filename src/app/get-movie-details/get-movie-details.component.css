@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+.genre {
+  font-family: "Handlee", cursive;
+  font-size: 1.1rem;
+}
+
+p {
+  font-family: "Sora", sans-serif;
+  font-size: 1.2rem;
+}/*# sourceMappingURL=get-movie-details.component.css.map */
